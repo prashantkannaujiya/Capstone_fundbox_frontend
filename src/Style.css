@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+body{
+    background-color: grey;
+    background-image: url(https://wallpapers.com/images/hd/beautiful-music-vintage-piano-a4g1wui6v9j2ybz3.jpg);
+}
+#main-header{
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 0 2cm 0 2cm;
+    height:2cm;
+  color:white;
+  margin-top:0.4cm;
+}
+#main-header>h1{
+  color:whitesmoke;
+      font-family:'Lobster', cursive;
+    font-size: 36px;
+}
+#login-menu{
+    display: none;
+    width:8cm;
+    height:auto;
+  
+    position:absolute;
+    
+    text-align: center;
+    margin-top: 3px;
+    right:1cm;
+    border-radius:11px;
+   border:2px solid;
+    color: white;
+}
+#login-menu>*,#login-menu input{
+    margin-bottom: 18px;
+}
+#err{
+    display:none;
+    color:red;
+}
+
+table{
+    margin:auto;
+}
+#register-form{
+    text-align: center;
+}
+#msg{
+    position:absolute;
+    margin:auto;
+    top:3cm;
+    left:20%;
+    background-image: url(https://w0.peakpx.com/wallpaper/573/4/HD-wallpaper-black-ornaments-texture-black-background-floral-ornaments-background-black-texture.jpg);
+    background-position:center;
+    border:5px solid rgb(231, 206, 95);
+    text-align: center;
+    width:60%;
+    height:70%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    box-shadow:10px 15px 5px grey;
+    border-radius: 15px;
+    color:whitesmoke;
+}
+#msg>p{
+    position: absolute;
+    bottom: 0;
+    font-size: smaller;
+}
+#msg>h2{
+    margin-top:3.5cm;
+    
+}
+#msg>h1{
+    font-size:42px;
+}
+#option{
+    transition: 9ms;
+    padding:5px;
+    display: none;
+    position:absolute;
+    right:15px;
+  
+    top:4.2cm;
+    background-color: whitesmoke;
+    text-align: center;
+    width:4cm;
+    height:12%;
+    border-radius: 7px;
+    color: grey;
+}
+#option-button{
+    position:absolute;
+    right:1cm;
+}
+
+#option>p{
+   
+    border-radius: 2px;
+padding:5px;
+margin:0;
+}
+#option>p:hover{
+background-color: black;
+}
+#campaign{
+   
+    display: none;
+   
+    padding:10px;
+   width:60%;
+   margin:auto;
+   color:white;
+   text-align: center;
+   border-radius: 9px;
+   margin-top:.8cm;
+   margin-bottom: 2cm;
+  
+}
+#campaign td{
+    padding:15px;
+    border-collapse: collapse;
+}
+#des{
+    width:35%;
+    height:2cm;
+}
+#history{
+    display:none;
+    color:white;
+}
+button{
+    margin:5px;
+    background-color: #e27d60;
+    border:0px;
+    border-radius: 5px;
+color:white;
+
+padding:5px 9px 5px 9px;
+}
+button:hover{
+    background-color: gray;
+}
+#exp{
+   color:white;
+text-align: center;
+}
+#exp>p{
+    font-size:0.8cm;
+}
+#explore>h2{
+  
+    text-align: center;
+    color:white;
+}
+#register-form td{
+    padding: 15px;
+}
+#register-form{
+    text-align: center;
+    margin-top:1.7cm;
+}
+#register-form form{
+    margin-top: 6px;
+}
+#register-form>div{
+    padding-top: .3cm;
+    padding-bottom: .2cm;
+    width:50%;
+    height:70%;
+    margin:auto;
+    border-radius: 9px;
+    color:white;
+    font-weight: 500;
+}
+
+#account-title{
+    margin:1cm;
+    color:white;
+}
+#history-display{
+  display: flex;
+   align-items: center;
+ justify-content: center;
+  margin-top:1.5cm;
+  margin-bottom: 2cm;
+
+}
+
+#history-display>div{
+    margin:0 .8cm 0 .8cm;
+    border:2px solid;
+    width:35%;
+    height:fit-content;
+    text-align: center;
+    padding-top: 1cm;
+    border-radius: 8px;
+    color:white;
+    font-weight: 600;
+}
+#history-display img{
+    width:6cm;
+    height:8cm;
+   border-radius: 5px;
+}
+#site-face{
+   
+    margin:.25cm 0 0.8cm 1.8cm;
+
+text-align: center;
+   
+    width:90%;
+    
+    color:white;
+    border-radius: 8px;
+}
+#site-face h1{
+    font-size: 3.5cm;
+    text-align: center;
+
+}
+#site-face h2{
+    font-size: 2.4cm;
+    margin-left: .8cm;
+}
+#site-face span{
+    font-size:3cm;
+    margin-left: .8cm;
+}
+#display-cat{
+    margin-top:.5cm;
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+   
+}
+#display-cat img{
+    margin-top:.6cm;
+    width:6cm;
+    height:8cm;
+    border-radius: 4px;
+}
+#display-cat>div{
+    color:white;
+    border:2px solid;
+    width:auto;
+    height:11cm;
+    text-align: center;
+    border-radius:8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 0.6cm;
+    margin:.8cm;
+}
+#dis{
+    max-width: 6.5cm;
+}
+#about-us{
+margin-top: 1.4cm;
+color:white;
+
+    text-align: center;
+}
+#about-us>h3{
+    font-size: 1.3cm;
+}
+#about-us>span{
+    margin-top: 0.6cm;
+    width:10cm;
+    font-weight: 600;
+    font-size: 0.5cm;
+    display:inline-block;
+}
+#foot{
+    margin:1cm 0 0.5cm 0;
+color: white;
+    text-align: center;
+   
+}
+#foot>p{
+    font-size:0.8cm;
+}
+#contact{
+    color:white;
+    text-align: center;
+   
+    margin-top:1cm;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#contact *{
+    margin-bottom: .4cm;
+   
+}
+#know{
+    margin-top: 2cm;
+    color:white;
+    text-align: center;
+}
+#know span{
+    width:35%;
+    margin-top: 1cm;
+    display:inline-block;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+#grow{
+    text-align: center;
+    margin-top:1.3cm;
+    color:white;
+}
+#grow *{
+    margin:10px;
+}
