@@ -95,7 +95,7 @@ console.log(user)
   return (
     <div id="app">
       <div id="main-header">
-        <h1>FundBox</h1>
+        <h1 onClick={()=>{setlog(0)}}>FundBox</h1>
        
         <div>
           {user == null ? (
