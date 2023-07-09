@@ -7,6 +7,7 @@ var [exp,setexp]=useState([]);
 
 function findAll(m)
 {
+   
     fetch(('http://localhost:2100/findAll/'+m))
     .then((res)=>res.json())
     .then((data)=>{console.log(data);setexp(data)})

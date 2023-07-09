@@ -1,18 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import './Style.css';
+import { waitForElementToBeRemoved } from "@testing-library/react";
 function Account(props) {
   var kk=[{category:'none',amount:'none',description:'none',title:'none',pic:'none'}];
   var [detail, setdetail] = useState(kk);
   var [i,seti]=useState(0);
-
-  function erase(m)
+ 
+  
+ function erase(m)
   {
+    var h = document.getElementById("history");
     fetch('http://localhost:2100/erase/'+m)
     .then((res)=> res.json())
     .then((hist)=>{
       console.log(hist)
       if(hist[0].campaign.length==0)
     {
+      h.style.display='none';
       setdetail(kk);
     }
   else{
@@ -67,13 +71,14 @@ function Account(props) {
   function option_menu() {
     
     var k = document.querySelector("#option");
+    console.log(k)
     k.style.display == "none"
       ? (k.style.display = "block")
       : (k.style.display = "none");
   }
   function history() {
     var h = document.getElementById("history");
-    h.style.display = "block";
+  
     document.querySelector('#campaign').style.display='none';
     var link = "http://localhost:2100/history/" + props.u;
     fetch(link)
@@ -82,43 +87,40 @@ function Account(props) {
         console.log(data);
         console.log(data[0].campaign)
         
-        if(data[0].campaign==0)
+        if(data[0].hasOwnProperty('campaign'))
         {
-          alert('Your history is empty');
+          if(data[0].campaign.length!=0)
+          {
+            setdetail(data[0].campaign)
+            h.style.display = "block";  
+          }
+          else
+          {
+            alert('Your history is empty');
           setdetail(kk)
+          }
+          
         }
         else
         {
-          setdetail(data[0].campaign)
+          alert('Your history is empty');
+          setdetail(kk)
         }
         
       });
   }
   return (
     <div>
-      <div>
-        {" "}
-        <button className="btn btn-outline-light" id="option-button" onClick={option_menu}>
-          <i className="bi bi-gear"></i>
-          
-        </button>
-      </div>
+     
       <div id='account-title'>
         <h2 style={{textAlign:'center'}}>Welcome {props.u}</h2>
       </div>
 
-      <div id="option">
-        <p
-          onClick={() => {
-            document.getElementById('history').style.display='none';
-
-            document.querySelector("#campaign").style.display = "block";
-          }}
-        >
-          Start Campaign
-        </p>
-        <p onClick={history}>History</p>
-      </div>
+     <h3 style={{position:'relative',color:'white',left:'1.2cm'}}>Dashboard</h3>
+     <div style={{position:'relative',marginTop:'0.9cm',left:'1.2cm',zIndex:'99',textAlign:'center',width:'max-content'}}>
+      <button onClick={()=>{document.getElementById('campaign').style.display='block';document.getElementById('history').style.display='none';}}>Start Campaign</button><br/>
+      <button onClick={history}>History</button>
+     </div>
       <div>
         <div id="campaign">
           <form onSubmit={(e)=>{submit_campaign(e)}}>

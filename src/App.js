@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Home from "./Home";
 import Register from "./Register";
 import Account from "./Account";
 import "./Style.css";
@@ -55,6 +54,16 @@ console.log(user)
   }
   function display() {
     var t = window.localStorage.getItem("token");
+    const tt=document.querySelector('#login-menu');
+    document.querySelector('body').addEventListener('click',e=>{
+      console.log(e)
+      console.log(tt.contains(e.target))
+      if(e.target!=tt && e.target!=document.querySelector('#but-log') && !tt.contains(e.target))
+      {
+        document.querySelector('#login-menu').style.display='none';
+        console.log(tt.getElementsByTagName('*'))
+      }
+    })
     var link = "http://localhost:2100/auth/" + t;
     if (t != null) {
       fetch(link)
@@ -107,7 +116,7 @@ console.log(user)
               >
                 Register
               </button>
-              <button   onClick={display}>Login</button>
+              <button id='but-log'  onClick={display}>Login</button>
             </div>
           ) : (
             <div>
@@ -142,9 +151,20 @@ console.log(user)
       </div>
       {(()=>{
         try{
+       
+      
+         const d={
+          top:'11cm',
+          left:'5cm',
+          position:'absolute'
+         }
+       
+         
           if(log==0)
           {
+            
             return <Explore></Explore>
+            
           }
           else if(log==1)
           {
@@ -155,13 +175,16 @@ console.log(user)
             return <Account u={user}></Account>
           }
           else if(log==3){
+           document.getElementById('foot').style=d;
           return <Contact></Contact>
           }
           else if(log==4)
           {
+            document.getElementById('foot').style=d;
             return <Grow></Grow>
           }
           else{
+           
             return <Know></Know>
           }
         }

@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 body{
-    background-color: grey;
+    background-color: rgb(56, 47, 47);
     background-image: url(https://wallpapers.com/images/hd/beautiful-music-vintage-piano-a4g1wui6v9j2ybz3.jpg);
 }
 #main-header{
@@ -114,7 +114,8 @@ background-color: black;
    border-radius: 9px;
    margin-top:.8cm;
    margin-bottom: 2cm;
-  
+   position:relative;
+    top:-5cm;
 }
 #campaign td{
     padding:15px;
@@ -127,6 +128,9 @@ background-color: black;
 #history{
     display:none;
     color:white;
+    position:relative;
+    top:-4cm;
+  
 }
 button{
     margin:5px;
