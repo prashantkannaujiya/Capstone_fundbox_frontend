@@ -116,8 +116,8 @@ function Account(props) {
         <h2 style={{textAlign:'center'}}>Welcome {props.u}</h2>
       </div>
 
-     <h3 style={{position:'relative',color:'white',left:'1.2cm'}}>Dashboard</h3>
-     <div style={{position:'relative',marginTop:'0.9cm',left:'1.2cm',zIndex:'99',textAlign:'center',width:'max-content'}}>
+     <h3 id='dash' >Dashboard</h3>
+     <div id='dash_button'>
       <button onClick={()=>{document.getElementById('campaign').style.display='block';document.getElementById('history').style.display='none';}}>Start Campaign</button><br/>
       <button onClick={history}>History</button>
      </div>

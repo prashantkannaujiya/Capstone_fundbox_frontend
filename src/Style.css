@@ -314,3 +314,18 @@ color: white;
 #grow *{
     margin:10px;
 }
+#dash{
+    position:relative;
+    color:white;
+    left:1.8cm;
+    
+    width:fit-content;
+}
+#dash_button{
+    position:relative;
+    margin-top:0.9cm;
+    left:2cm;
+    z-index:99;
+    text-align:center;
+    width:fit-content;
+}
