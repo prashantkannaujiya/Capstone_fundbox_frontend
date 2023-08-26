@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import Register from "./Register";
 import Account from "./Account";
 import "./Style.css";
@@ -7,15 +7,40 @@ import Explore from "./Explore";
 import Contact from "./Contact";
 import Know from "./Know";
 import Grow from "./Grow";
+import { Route,Routes, useNavigate,Link, useLocation } from "react-router-dom";
+import Home from "./Home";
+import History from "./History";
+import Campaign from "./Campaign";
+import Expand from "./Expand";
+export const currentUser=createContext();
 function App() {
  
-  var [log, setlog] = useState(0);
+ var location=useLocation();
   var [user, setuser] = useState(null);
-  
+  const navigate=useNavigate();
+useEffect(()=>{
+  console.log(location.pathname)
+  document.querySelector('title').innerText='FundBox';
+ set();
+},[location])
+
+function set()
+{
+  console.log(location.pathname)
+  if(location.pathname !='/')
+  {
+    document.querySelector('#main-header').style.backgroundColor= '#0f4e4c';
+  }
+  else
+  {
+    document.querySelector('#main-header').style.backgroundColor='#116466';
+  }
+   
+}
   const login = (event) => {
     event.preventDefault();
     var h = document.getElementsByName("log");
-
+   
     var k = {
       name: h[0].value,
       password: h[1].value,
@@ -50,7 +75,7 @@ console.log(user)
   function logoff() {
     window.localStorage.clear();
     setuser(null);
-    setlog(0);
+    navigate('/')
   }
   function display() {
     var t = window.localStorage.getItem("token");
@@ -96,22 +121,18 @@ console.log(user)
       ? (k.style.display = "block")
       : (k.style.display = "none"));
   }
-  function msg_dis(){
-    var k=document.getElementById('msg');
-    k.style.display='none';
-
-  }
+  
   return (
     <div id="app">
       <div id="main-header">
-        <h1 onClick={()=>{setlog(0)}}>FundBox</h1>
+      <Link to='/'><h1 style={{fontFamily:'Lobster, cursive'}}>FundBox</h1></Link>  
        
         <div>
           {user == null ? (
             <div>
               <button  
                 onClick={() => {
-                  setlog(1);
+                  navigate('/register')
                 }}
               >
                 Register
@@ -124,7 +145,7 @@ console.log(user)
               <button   onClick={logoff}>Logout</button>
               <button  
                 onClick={() => {
-                  setlog(2);
+                 navigate('/account');
                 }}
               >
                 My Account
@@ -149,57 +170,32 @@ console.log(user)
           </div>
         </div>
       </div>
-      {(()=>{
-        try{
-       
-      
-         const d={
-          top:'11cm',
-          left:'5cm',
-          position:'absolute'
-         }
-       
-         
-          if(log==0)
-          {
-            
-            return <Explore></Explore>
-            
-          }
-          else if(log==1)
-          {
-            return <Register></Register>
-          }
-          else if(log==2)
-          {
-            return <Account u={user}></Account>
-          }
-          else if(log==3){
-           document.getElementById('foot').style=d;
-          return <Contact></Contact>
-          }
-          else if(log==4)
-          {
-            document.getElementById('foot').style=d;
-            return <Grow></Grow>
-          }
-          else{
-           
-            return <Know></Know>
-          }
-        }
-        catch(e){
-          console.log(e)
-        }
-
-  })()
-
-  }
+     
+     <div>
+     <currentUser.Provider value={user}>
+     <Routes>
+      <Route path='/' element={<Home></Home>}/>
+      <Route path='/explore' element={<Explore></Explore>}/>
+      <Route path='/contact' element={<Contact></Contact>}/>
+      <Route path='/grow' element={<Grow></Grow>}/>
+      <Route path='/know' element={<Know></Know>}/>
+      <Route path='/account' element={<Account></Account>}>
+      <Route path='/account/history' element={<History></History>}>
+      <Route path='/account/history/expand' element={<Expand></Expand>}/>
+      </Route>
+      <Route path='/account/campaign' element={<Campaign></Campaign>}/>
+ </Route>
+      <Route path='/register' element={<Register></Register>}/>
+            <Route path='/expand' element={<Expand></Expand>}/>
+     </Routes>
+     </currentUser.Provider>
+     </div>
+    
   <div id='foot'>
-    <p>Interested in Us ??</p>{console.log('hi')}
-    <button onClick={()=>{setlog(3)}}>Contact Us</button>
-    <button onClick={()=>{setlog(4)}}>Grow With Us</button>
-    <button onClick={()=>{setlog(5)}}>Know Us</button>
+   
+    <Link to='/contact'>Contact Us</Link>
+    <Link to='/grow'>Grow With Us</Link>
+    <Link to='/know'>Know Us</Link>
   </div>
  
     </div>

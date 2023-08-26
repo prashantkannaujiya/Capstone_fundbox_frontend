@@ -18,19 +18,19 @@ return(
                 <td><input type='text'/></td>
               </tr>
               <tr>
-                <td>Email</td>
+                <td><label>Email</label></td>
                 <td><input type='mail'/></td>
-              </tr>
+              </tr> 
               <tr>
-                <td>Phone</td>
+                <td><label>Phone</label></td>
                 <td><input type='phone'/></td>
               </tr>
               <tr>
-                <td>Country</td>
+                <td><label>Country</label></td>
                 <td><input type='text'/></td>
               </tr>
               <tr>
-                <td>Put your query</td>
+                <td><label>Your Query</label></td>
                 <td><textarea rows={3} cols={22}></textarea></td>
               </tr>
             </table>
