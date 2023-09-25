@@ -39,7 +39,7 @@ function Register() {
               <label>Name</label>
             </td>
             <td>
-              <input type="text" name='form'/>
+              <input type="text" name='form' required/>
             </td>
           </tr>
           <tr>
@@ -47,7 +47,7 @@ function Register() {
               <label>Age</label>
             </td>
             <td>
-              <input type="number" name='form'/>
+              <input type="number" name='form' required/>
             </td>
           </tr>
          
@@ -56,7 +56,7 @@ function Register() {
               <label>Password</label>
             </td>
             <td>
-              <input type="password" name='form'/>
+              <input type="password" name='form' required/>
             </td>
           </tr>
         </table>

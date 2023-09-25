@@ -1,6 +1,8 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 function Contact()
 {
+  const location=useLocation()
     function query(ev)
     {
         ev.preventDefault();
@@ -9,7 +11,8 @@ function Contact()
     }
 return(
     <div id='contact'>
-        <h1 style={{marginTop:'0.5cm'}}>Contact Us</h1>
+    {location.pathname!='/' && <h1 style={{marginTop:'0.5cm'}}>Contact Us</h1> }
+        
         <p style={{marginBottom:'1cm'}}>Kindly fill the form and we'll get back to you</p>
         <form onSubmit={(e)=>{query(e)}}>
             <table>

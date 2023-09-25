@@ -7,7 +7,7 @@ function Account() {
  var [welcomeUser,setwelcomeUser]=useState(false)
  const navigate=useNavigate()
  var user=useContext(currentUser);
- 
+ var [confirm,setconfirm]=useState(false)
  useEffect(()=>{
   if(!user)
   {
@@ -38,6 +38,7 @@ fetch('http://localhost:2100/clear/'+user)
 .catch(err=>{alert('unsucessful')})
   }
    
+
   return (
     <div>
      
@@ -45,9 +46,13 @@ fetch('http://localhost:2100/clear/'+user)
 <div id='dashBoard'>
      <h4 id='dash' >Dashboard</h4>
      <div id='dash_button'>
-      <button onClick={()=>{setwelcomeUser(true);navigate('/account/campaign')}}>Start Campaign</button><br/>
-      <button onClick={()=>{setwelcomeUser(true);navigate('/account/history')}}>History</button><br/>
-      <button onClick={clear}>Clear Campaigns</button>
+      <button onClick={()=>{setwelcomeUser(true);navigate('/account/campaign')}}>Start Campaign</button>
+      <button onClick={()=>{setwelcomeUser(true);navigate('/account/history')}}>History</button>
+      <button onClick={()=>{setconfirm(true)}}>Clear Campaigns</button>
+     {confirm && <div id='confirmation'><div><p>Are you sure ? </p><p>It would delete everything</p>
+     <button onClick={clear}>Ok</button><button onClick={()=>{setconfirm(false)}}>Cancel</button>
+     </div></div>}
+     {confirm && <div id='coverup'></div>}
      </div>
      </div>
     <div>{welcomeUser?<Outlet/>:display()}</div>

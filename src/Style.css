@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
+  @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@500&family=Mulish:wght@300&family=Satisfy&display=swap');
+
 body {
     background-color: #116466;
-    
+    background-image: url('https://drive.google.com/file/d/1HB5pzEk1E6Edh4gyBJvx3UPx37TuQAxP/view?usp=sharing');
     background-attachment: fixed;
 }
 
@@ -27,13 +29,13 @@ body {
 #login-menu {
     display: none;
     width: 8cm;
-    height: auto;
+    height: 6in;
 background-color: #2b7a78;
     position: absolute;
-
+padding-top: 1in;
     text-align: center;
     margin-top: 3px;
-    right: 1cm;
+    right: 0.1cm;
     border-radius: 11px;
     border: 2px solid;
     color: white;
@@ -134,21 +136,24 @@ table {
 
 button {
     margin: 5px;
-    background-color: #e27d60;
-    border: 0px;
+    background-color: #116466;
+    border: 1.8px solid white;
     border-radius: 5px;
-    color: white;
+    color: whitesmoke;
 
-    padding: 5px 9px 5px 9px;
+    padding:4px 8px;
 }
 
 button:hover {
-    background-color: gray;
+    background-color: whitesmoke;
+    color:black;
 }
 #explore{
     transition:2s;
     display: flex;
     justify-content: center;
+    position:relative;
+    right:1.3cm;
 }
 a:link,
 a:visited {
@@ -251,7 +256,7 @@ background-color: #2b7a78;
 }
 .buttonUnClicked{
 position: absolute;
-right:3cm;
+right:130px;
 }
 .buttonClicked{
     position:relative;
@@ -269,19 +274,29 @@ right:3cm;
 }
 #dash_button>button{
     width:4cm;
+    display:block;
 }
 #site-face {
 
-    margin: 2.5cm 0 0.8cm;
-
+    margin: 1.5cm 0 0.8cm;
+    /*box-shadow: inset 0px 0px 3px 3px #116466;*/
     text-align: center;
-padding: 5px 0 5px 0;
+padding: 25px 0 25px 0;
     width: 100%;
-    background-color: #c99065;
-   
-    color: rgb(218, 217, 217);
-    border-radius: 8px;
+/*background-color: #ffdb58;*/
+   color: white;
+    
 }
+#homePic{
+    position:absolute;
+    width:100%;
+    opacity: 0.3;
+    left:0in;
+    height: 8in;
+    top:0in;
+    z-index: -1;
+}
+
 
 #site-face h1 {
     margin-top:-0.4cm;
@@ -371,22 +386,26 @@ background-color:#2b7a78;
     margin: 3cm 0 0.5cm 0;
     color: white;
     text-align: center;
-
+    
 }
 
 #foot>p {
     font-size: 0.8cm;
 }
-
-#contact {
-    position: relative;
-    left:3in;
+#contact{
+    text-align: center;
+    color:white;
+    margin-top: 1cm;
+}
+#contact>form {
+    
     background-color: #2b7a78;
-    padding:0.6cm 6cm;
+    padding:1.3cm 4cm;
     color: white;
     text-align: center;
     width:fit-content;
-    margin-top: 2cm;
+    margin: auto;
+    margin-top: 1cm;
     font-family: Arial, Helvetica, sans-serif;
     border-radius: 28px;
 }
@@ -434,7 +453,7 @@ background-color:#2b7a78;
 #dash_button {
    
     margin-top: 0.9cm;
-    left: 2cm;
+
     z-index: 99;
     text-align: center;
     width: fit-content;
@@ -449,7 +468,7 @@ background-color:#2b7a78;
     right:4.5cm;
 }
 #expand{
-    padding:0.5cm;
+    padding:0.6cm;
     padding-top: 0.8cm;
     display: flex;
     justify-content: flex-start;
@@ -504,6 +523,7 @@ font-size: medium;
     left:6.1in;
     bottom:2in;
     color:white;
+    width:50%;
 }
 input{
     border-radius: 6px;
@@ -515,3 +535,257 @@ textarea{
 #contact td{
     padding:8px;
 }
+.crowdFunding{
+margin-top:3.6cm;
+}
+.crowdFunding>h2{
+    color:#2b7a78;
+    background-color: white;
+    font-family: 'Lobster', cursive;
+    padding:0.2cm;
+    width:fit-content;
+    margin-bottom: 0.9cm;
+    border-radius: 8px;
+    margin-left: 2cm;
+}
+.crowdFunding>p{
+    width:80%;
+    font-family: 'Lobster', cursive;
+    color:white;
+    margin-left: 2cm;
+    font-size: 0.6cm;
+}
+#search{
+    font-weight:700;
+    font-size:x-large;
+}
+
+#searching td{
+background-color: #2b7a78;
+padding:7px;
+border: 3px #116466 solid;
+
+}
+#searching table{
+    text-align: center;
+    margin-top: 1.5cm;
+    color:whitesmoke;
+   border-radius:10px;
+}
+#searchImage{
+    width:3cm;
+    height:3.5cm;
+}
+#searching h3{
+    position:absolute;
+    left:5.2in;
+    color:yellow;
+top:1.5in;
+}
+#tip{
+    position:absolute;
+    left:1.5in;
+    width:1.7in;
+    font-size: large;
+    border-radius: 8px;
+    padding:10px;
+    background-color: #ffdb58;
+}
+#tip>i{
+    width:0.8cm;
+    height:0.8cm;
+    color:orange
+}
+#confirmation{
+    position:fixed;
+    left:5.6in;
+    top:1.8in;
+    
+    
+    z-index: 2  ;
+    color:grey;
+    
+    }
+#confirmation>div{
+    background-color: white;
+    padding:2cm;
+    width:max-content;
+    border-radius: 9px;
+    box-shadow:1px 3px 6px 6px #8e9e9e;
+}
+#coverup{
+    z-index:1;
+    position:fixed;
+    top:2.5cm;
+    left:-0.1cm;
+    height:5in;
+    width:100%;
+    opacity:0.8;
+    background-color: #116466;
+}
+#emptyExplore{
+    position: relative;
+    top:2.2in;
+    left:2.5in;
+    font-size: x-large;
+    color:yellow;
+}
+#main-header input{
+padding:6px;
+
+margin-right: 6px;
+}
+#searchBox{position:absolute;
+    left:5.7989in;
+}
+
+@media only screen and (max-width:600px)
+{
+    #homePic{
+        display:none;
+    }
+    #searchBox{
+left:8px;
+top:2cm;
+    }
+    #main-header{
+        display:flex;
+        justify-content: space-between;
+        padding:8px;
+
+    }
+    #site-face h1{
+        font-size: 85px;
+
+    }
+    .crowdFunding>p,.crowdFunding>h2,.crowdFunding{
+        margin:0px;
+        width:100%;
+        padding:10px;
+        margin-bottom:1cm;
+    }
+    #contact form{
+        position: static;
+        margin:auto;
+        padding:15px;
+ padding-top: 35px;        
+    }
+    #searching{
+        padding:5px;
+        
+        width:100%;
+    }
+    #searchImage{
+        width:2.5cm;
+    }
+    #tip{
+        display: none;
+    }
+    #dashBoard{
+        width: fit-content;
+        position: static;
+        text-align: center;
+        padding: 5px;
+    margin:auto;
+        margin-top: 2cm;
+    }
+    #dash_button>button{
+        width:fit-content;
+  
+        display: inline;
+    }
+    #dash_button{
+        margin:5px;
+        text-align: center;
+        width:auto;
+    }
+    #dash{
+        margin: 0;
+        width:auto;
+    }
+    #welcomeHeading{
+        position: static;
+        margin-top: 2cm;
+        width:100%;
+        text-align: center;
+    }
+    #campaign{
+        position:static;
+        width:fit-content;
+        padding:5px;
+    }
+    #history{
+        position: static;
+        width:100%;
+        margin:auto;
+        margin-top: 1cm;
+        
+    }
+    #confirmation{
+        left:0;
+        top:2in;
+width:100%;
+    }
+    #confirmation>div{
+        padding:1cm;
+        margin:auto;
+    }
+    #coverup{
+        top:3.5cm;
+    }
+    .buttonClicked{
+        position:static;
+        display: block;
+        margin: auto;
+    }
+    
+    #expand{
+        display: block;
+    }
+    #expand img{
+        display: block;
+        margin: auto;
+        width:90%;
+        height:35vh;
+    }
+    #exp>p{
+        display: inline;
+    }
+    #explore{
+        display: block;
+        position: static;
+    }
+    #exp{
+        
+        width:100%;
+        margin: auto;
+        margin-top: 1cm;
+    }
+    #exp button{
+        height:fit-content;
+        width:fit-content;
+    }
+    #display-cat{
+grid-template-columns: 1fr;
+margin: auto;
+    }
+    #expandExplore{
+        position: static;
+width:80%;
+margin: auto;
+margin-top: 2cm;
+display:block;
+padding: 17px 0 17px 0;
+
+    }
+    #expandExplore img{
+width:90%;
+display: block;
+margin: auto;
+padding:0;
+border-radius: 8px;
+    }
+    #know span{
+        width:80%;
+    }
+}                   

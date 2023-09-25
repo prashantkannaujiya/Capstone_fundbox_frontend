@@ -49,26 +49,28 @@ const u=useContext(currentUser);
     {
       document.querySelector("#empty-history").style.display = "block";
       setdetail([]);
+      setexpand(null)
     }
     
   else{
   
     console.log(hist[0].campaign)
-   setdetail(hist[0].campaign)
+    setexpand(null)
+   setdetail([...hist[0].campaign])
   }})
   .catch(err=>{console.log(err);alert('Error occured while deleting')})
   }
   return (
     <div id="history">
-      
+      <h3 style={{textAlign:'center'}}>History</h3>
       <div id="history-display">
         <div>
           {(() => {
             if (detail.length != 0) {
               return detail.map((det,i) => {
                 return (
-                  <div id='historyCampaign' onClick={()=>{setexpand(i);navigate('/account/history/expand',{state:det})}}>
-               <div> {expand!=i && <p id='historyTitle' >Title : {det.title}</p>}
+                  <div id='historyCampaign'>
+               <div> {expand!=i && <p id='historyTitle' onClick={()=>{setexpand(i);navigate('/account/history/expand',{state:det})}} >Title : {det.title}</p>}
                     {
                       (()=>{
                         if(expand==i)

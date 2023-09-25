@@ -3,40 +3,33 @@ import Register from "./Register";
 import Account from "./Account";
 import "./Style.css";
 import 'bootstrap/dist/css/bootstrap.css';
+import "bootstrap-icons/font/bootstrap-icons.css";    
 import Explore from "./Explore";
 import Contact from "./Contact";
 import Know from "./Know";
 import Grow from "./Grow";
+import Searching from "./Searching";
 import { Route,Routes, useNavigate,Link, useLocation } from "react-router-dom";
 import Home from "./Home";
 import History from "./History";
 import Campaign from "./Campaign";
 import Expand from "./Expand";
+import { Search } from "react-bootstrap-icons";
+import {BiSearch} from 'react-icons/bi';
 export const currentUser=createContext();
 function App() {
- 
+ var [searched,setsearched]=useState(null)
  var location=useLocation();
   var [user, setuser] = useState(null);
   const navigate=useNavigate();
 useEffect(()=>{
   console.log(location.pathname)
-  document.querySelector('title').innerText='FundBox';
- set();
+  
+ 
+footset();
 },[location])
 
-function set()
-{
-  console.log(location.pathname)
-  if(location.pathname !='/')
-  {
-    document.querySelector('#main-header').style.backgroundColor= '#0f4e4c';
-  }
-  else
-  {
-    document.querySelector('#main-header').style.backgroundColor='#116466';
-  }
-   
-}
+
   const login = (event) => {
     event.preventDefault();
     var h = document.getElementsByName("log");
@@ -86,7 +79,7 @@ console.log(user)
       if(e.target!=tt && e.target!=document.querySelector('#but-log') && !tt.contains(e.target))
       {
         document.querySelector('#login-menu').style.display='none';
-        console.log(tt.getElementsByTagName('*'))
+        console.log(tt.getElementsByTagName('*')) 
       }
     })
     var link = "http://localhost:2100/auth/" + t;
@@ -122,11 +115,29 @@ console.log(user)
       : (k.style.display = "none"));
   }
   
+  function footset()
+  {
+    const h=document.getElementById('app').scrollHeight;
+    const width=document.getElementById('app').scrollWidth;
+    console.log(h +' '+ width)
+const p=document.getElementById('foot')   
+    if(h<600 && width>600)
+    {
+      const property={position:'absolute',top:'6in'};
+      p.style.position='absolute';
+      p.style.top='5in';
+      p.style.left='5.5in';
+    }
+    else
+    {
+      p.style.position='static';
+    }
+  }
   return (
     <div id="app">
       <div id="main-header">
       <Link to='/'><h1 style={{fontFamily:'Lobster, cursive'}}>FundBox</h1></Link>  
-       
+       <span id='searchBox'><input type='text' placeholder="Search in Campaigns" onChange={(e)=>{setsearched(e.target.value)}}/><button style={{width:'1.5cm',padding:'5px'}}><BiSearch id='search' onClick={()=>{navigate('/search',{state:searched})}}></BiSearch></button> </span>
         <div>
           {user == null ? (
             <div>
@@ -134,6 +145,7 @@ console.log(user)
                 onClick={() => {
                   navigate('/register')
                 }}
+                
               >
                 Register
               </button>
@@ -171,13 +183,14 @@ console.log(user)
         </div>
       </div>
      
-     <div>
+     <div id='mainContent'>
      <currentUser.Provider value={user}>
      <Routes>
       <Route path='/' element={<Home></Home>}/>
       <Route path='/explore' element={<Explore></Explore>}/>
       <Route path='/contact' element={<Contact></Contact>}/>
       <Route path='/grow' element={<Grow></Grow>}/>
+      <Route path="/search" element={<Searching></Searching>}/>
       <Route path='/know' element={<Know></Know>}/>
       <Route path='/account' element={<Account></Account>}>
       <Route path='/account/history' element={<History></History>}>
@@ -190,7 +203,7 @@ console.log(user)
      </Routes>
      </currentUser.Provider>
      </div>
-    
+     {console.log(document.getElementById('app'))}
   <div id='foot'>
    
     <Link to='/contact'>Contact Us</Link>
@@ -202,3 +215,5 @@ console.log(user)
   );
 }
 export default App;
+
+
